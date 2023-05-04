@@ -13,7 +13,7 @@ Language
 Frontend
 
 -   React
--   Tailwind CSS
+-   Tailwind CSS (_npm install -D tailwindcss postcss autoprefixer_, _npx tailwindcss init -p_)
 
 Server side and Routing
 
