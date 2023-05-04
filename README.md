@@ -14,6 +14,7 @@ Frontend
 
 -   React
 -   Tailwind CSS (_npm install -D tailwindcss postcss autoprefixer_, _npx tailwindcss init -p_)
+-   React-icons (_npm install react-icons_)
 
 Server side and Routing
 
