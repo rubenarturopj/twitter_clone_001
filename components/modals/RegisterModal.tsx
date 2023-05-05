@@ -29,7 +29,7 @@ const RegisterModal = () => {
         try {
             setIsLoading(true);
 
-            // to do ADD REGISTER AND LOG IN
+            // to do ADD REGISTER AND LOG IN.
 
             registerModal.onClose();
         } catch (error) {

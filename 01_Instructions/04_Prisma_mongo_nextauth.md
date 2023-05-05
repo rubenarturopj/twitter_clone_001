@@ -64,6 +64,56 @@ npx prisma db push
 npm install @prisma/client
 ```
 
+2. We're going to create a new library. Create a new folder called `libs` (libraries). Inside, create a file named `prismadb.ts`. Inside, import `PrismaClient`. Declare a global variable, create a const and and if conditional. And export it.
+
+-   Explanation: This is a fix for Next.js hot reloading, because it creates a lot of Prisma Clients and will make the app crash. The globlar variable is not affected by hot reload.
+
+3. Go to `pages/api` and create a new folder called `auth`. Inside, create a file called `[...nextauth].ts`. Then we are going to install the following packages:
+
+```sh
+npm install bcrypt
+npm install -D @types/bcrypt
+
+npm install next-auth
+npm install @next-auth/prisma-adapter
+```
+
+4. Now lets fill in the file we created in step 3. This file will be in charge of checking if the credentials entered by the user (email, and password) match to a user in the database. To acces or deny the loggin. Finally we are setting up the Tokens for the session, using our SECRET that we havn't created yet.
+
+5. Let's create our SECRET. Go to `.env` file and create the secrets for `NEXTAUTH_JWT_SECRET=` and `NEXTAUTH_SECRET=`.
+
+#### Register endpoint
+
+1. Create a new file called `register.ts` in `pages/api` folder. MAKE SURE NOT TO DO IT IN AUTH. In this file we are going to handle the creation of a new USER and push it into the database. So fill this file in with its corresponding stuff.
+
+2. in the `libs` folder, create a file called `serverAuth.ts`. This library will serve as our server authorization. Fill in this file as in results.
+
+3. Create another route called `current.` to fetch our currentyl logged in user. Go to `pages/api` folder and create a new file called `current.ts`. This file will call the file on step 2. THis router will check if we are logged in, if there is a user. That will be done by using the file on step 2 which looks into the database.
+
+4. Go to `hooks` folder and create a new file called `useCurrentUser.ts`. Before filling this file, let's install another package:
+
+```sh
+npm install swr
+```
+
+5. Import this package in `useCurrentUser.ts` and keep filling the file.
+
+6. Create another library called `fetcher`, in a file called `fetcher.ts` in the `libs/` folder.
+
+7. To work on `fetcher.tsx` we will need to install another package:
+
+```sh
+npm install axios
+```
+
+8. `Import axios from "axios"` and fill in the `fetcher.ts` file. Create a constant called FETCHER that we can export.
+
+9. Finish typing `useCurrentUser.ts`. In it, useSWR will fetch the dato from the endpoint established using the fetcher function. This will replace global state like redux, it will store the data and compare later instead of refetching over and over.
+
+#### RegisterModal
+
+1. Go back to `RegisterModal.tsx` and keep typing in the place where we left comments saying to add register and loggin.
+
 :::::::::::::::::::::::::::::::::::::::::
 
 Me quedé en el minuto: 1 h 18 min 10 s

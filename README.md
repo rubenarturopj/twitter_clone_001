@@ -16,14 +16,16 @@ Frontend
 -   Tailwind CSS (_npm install -D tailwindcss postcss autoprefixer_, _npx tailwindcss init -p_)
 -   React-icons (_npm install react-icons_)
 -   Zustand: global state management (_npm install zustand_)
+-   SWR (stale-while-revalidate): a React Hooks library for data fetching.
 
-Server side and Routing
+Backend: Server side and Routing
 
 -   Next.js
+-   Axios (_npm install axios_)
 
 Data management
 
--   Prisma(_npm install -D prisma_, _npx prisma init_)
+-   Prisma (_npm install -D prisma_, _npx prisma init_)
 
 Database
 
@@ -31,7 +33,8 @@ Database
 
 Authetication
 
--   NextAuth
+-   Auth.js --> But "@next-auth/prisma-adapter" 2023, which is the official primsa adapter for Auth.js / NextAuth.js. (Serves to loggin using several social media profiles/accounts like github, google, facebook, etc.) (npm install next-auth @next-auth/prisma-adapter)
+-   Bcrypt. A library that helps hash passwords (this means Encrypt passwords changing them into a completely different string made of different characters) (npm install bcrypt). For its types: (npm install -D @types/bcrypt)
 
 ### Features
 
