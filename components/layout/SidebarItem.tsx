@@ -1,3 +1,7 @@
+import useCurrentUser from "@/hooks/useCurrentUser";
+import useLoginModal from "@/hooks/useLoginModal";
+import { useRouter } from "next/router";
+import { useCallback } from "react";
 import { IconType } from "react-icons";
 
 interface SidebarItemProps {
@@ -5,7 +9,7 @@ interface SidebarItemProps {
     icon: IconType;
     href?: string;
     onClick?: () => void;
-    // auth?: boolean;
+    auth?: boolean;
     // alert?: boolean;
 }
 
@@ -14,11 +18,27 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     icon: Icon,
     href,
     onClick,
-    // auth,
+    auth,
     // alert,
 }) => {
+    const { data: currentUser } = useCurrentUser();
+    const router = useRouter();
+    const loginModal = useLoginModal();
+
+    const handleClick = useCallback(() => {
+        if (onClick) {
+            return onClick();
+        }
+        // if the route is protected and we don't have a currentUser, open login modal.
+        if (auth && !currentUser) {
+            loginModal.onOpen();
+        } else if (href) {
+            router.push(href);
+        }
+    }, [router, onClick, href, auth, currentUser, loginModal]);
+
     return (
-        <div className="flex flex-row items-center">
+        <div onClick={handleClick} className="flex flex-row items-center">
             {/* for mobile */}
             <div
                 className="
@@ -38,7 +58,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             >
                 <Icon size={28} color="white" />
             </div>
-            {/* for dekptop */}
+            {/* for desktop */}
             <div
                 className="
                     relative

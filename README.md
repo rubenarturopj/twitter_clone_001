@@ -17,6 +17,7 @@ Frontend
 -   React-icons (_npm install react-icons_)
 -   Zustand: global state management (_npm install zustand_)
 -   SWR (stale-while-revalidate): a React Hooks library for data fetching.
+-   React Hot Toast: notifications (npm install react-hot-toast)
 
 Backend: Server side and Routing
 

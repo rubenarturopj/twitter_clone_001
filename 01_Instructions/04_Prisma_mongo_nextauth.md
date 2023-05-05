@@ -112,7 +112,47 @@ npm install axios
 
 #### RegisterModal
 
-1. Go back to `RegisterModal.tsx` and keep typing in the place where we left comments saying to add register and loggin.
+1. Go back to `RegisterModal.tsx` and keep typing in the place where we left comments saying to add register and loggin. We are adding `AXIOS` and making a `POST` request to the route `"/api/register"`, but where does this route comes from? How does it exist? Because we created in the file called `register.ts` in the `pages/api` folder. Pass the second parameter to AXIOS.
+
+-   So: what's inside of the API folder becomes a router? No, we are simply saying send the request to this specific file where we have implemented a full function to take care of the request. Yes, for this project yes because we are organized and we are making the API folder the place where we are going to store all our router files.
+-   We are also keeping the Auth folder inside API clean, because that will be reserved for authentication purposes. If we add another file in the AUTH folder, then we may break the app.
+-   Axios takes 2 parameters: the first one is the route and the second is the data to pass.
+
+2. We want to display a message of succes or failure. So, let's install `React-hot-toast`
+
+```sh
+npm install react-hot-toast
+```
+
+3. Go to your `_app.tsx` file and import `Toaster` from react-hot-toast and `SessionProvider` from "next-auth/react". Then wrap up everything in the return section inside the `<SessionProvider>` component. Below the opening tag of the sessionprovider, add the single-tag `<Toaster/>` component, above the rest of components.
+
+4. Go back to `RegisterModal.tsx` and add the Toast messages of success/failure. Also, import `SignIn` from "next-auth/react". Finish everything there so we can create a user and also sign in using SingIn.
+
+5. If you test it now and create a user, it works! you'll the the user information in the database. But we can't tell if we are logged in or not, in the UI, because we haven't established it yet.
+
+### Show we are logged in in our UI.
+
+1. Go to `components/layout/Sidebar.tsx`. We are going to use the hook `useCurrentUser.ts`. Import it in out Sidebar and pass it in the main function. Because this hook checks if there's a user signed it, we are going to make a conditional rendering in the return section that will affect the LogOut button. If we are loggedin, the we show the logout button.
+
+2. Also, we are going pass the `signOut()` function to the sign out button. Import it from next-auth/react.
+
+3. Go to `SidebarItem.tsx` and to the first div in the return section, add the `onClick` property and pass a new function. Then create this function above. Import the router. Finish the function. Now if you logout on our UI it will work!!
+
+4. We can see the password we type in, so we're going to add `type="password"` to our password input.
+
+### Enable login modal
+
+1. Go to `components/modals/LoginModal.tsx`. And we are going to add the missing part in the main function and the toast notifications. now if we log in with the same credentials we did before, it should work =) .
+
+2. We can see the password we type in, so we're going to add `type="password"` to our password input.
+
+### Hide/Show/protect -Notifications, profile buttons when were are not logged in.
+
+1. Go to `sidebarItem.tsx` and we are going to add another parameter to the interface, this param will be `auth?: boolean`. Exctract it in props.
+
+2. We are going to check if the router is protected. For that we're going to use our currentUser. So, import "useCurrentUser" from the hook we created. Then add a costant in the main function. THe we're going to do some changes to the "handleClick" so it all works.
+
+3. Go to `Sidebar.tsx` and add the `auth` property to `notifications` and `Profile` in the `items` array. THen we need to pass that in the return section: add `auth={item.auth}` to the `<SidebarItem>` component.
 
 :::::::::::::::::::::::::::::::::::::::::
 
