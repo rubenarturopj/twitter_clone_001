@@ -23,7 +23,7 @@ Server side and Routing
 
 Data management
 
--   Prisma
+-   Prisma(_npm install -D prisma_, _npx prisma init_)
 
 Database
 
