@@ -17,7 +17,8 @@ Frontend
 -   React-icons (_npm install react-icons_)
 -   Zustand: global state management (_npm install zustand_)
 -   SWR (stale-while-revalidate): a React Hooks library for data fetching.
--   React Hot Toast: notifications (npm install react-hot-toast)
+-   React Hot Toast: notifications (_npm install react-hot-toast_)
+-   React-spinners: visual loader animations (_npm install react-spinners_)
 
 Backend: Server side and Routing
 
@@ -36,6 +37,10 @@ Authetication
 
 -   Auth.js --> But "@next-auth/prisma-adapter" 2023, which is the official primsa adapter for Auth.js / NextAuth.js. (Serves to loggin using several social media profiles/accounts like github, google, facebook, etc.) (npm install next-auth @next-auth/prisma-adapter)
 -   Bcrypt. A library that helps hash passwords (this means Encrypt passwords changing them into a completely different string made of different characters) (npm install bcrypt). For its types: (npm install -D @types/bcrypt)
+
+Data and Time manipulation (front and back)
+
+-   date-fns: toolset for manipulating JavaScript dates in a browser & Node.js. (_npm install date-fns_)
 
 ### Features
 

@@ -116,6 +116,7 @@ npm install axios
 
 -   So: what's inside of the API folder becomes a router? No, we are simply saying send the request to this specific file where we have implemented a full function to take care of the request. Yes, for this project yes because we are organized and we are making the API folder the place where we are going to store all our router files.
 -   We are also keeping the Auth folder inside API clean, because that will be reserved for authentication purposes. If we add another file in the AUTH folder, then we may break the app.
+-   I just realized that the files named like this `[userId].ts/x` are the files that belong to a specific personalized router for each User, like user 1, user 2, user, 3, etc. Each user has a their profile page, and `[userId].ts/x` is the file that will render this personalized profile page, the name is just a place holder like this: `/api/users/${userId}` or in Vite: `users/:id`.
 -   Axios takes 2 parameters: the first one is the route and the second is the data to pass.
 
 2. We want to display a message of succes or failure. So, let's install `React-hot-toast`

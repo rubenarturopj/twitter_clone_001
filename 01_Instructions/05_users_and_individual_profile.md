@@ -24,4 +24,34 @@
 
 3. Style `Avatar.tsx`. Add the function to redirect when clicked on it. Inside `public` folder, create a new folder called `images`. Add the PNG image placeholder for image in the `public/images/` folder.
 
+### Create user profile
+
+When we click in our profile picture, it will redirect us to our full profile page. But our profile page does not exist yet.
+
+1. go to `pages` folder and create a new folder called `users`. Inside, create a new file called `[userId].tsx`. Give it the basic structure.
+
+2. Install React-spinners to have loaders.
+
+```sh
+npm install react-spinners
+```
+
+3. Keep styling and writing our `[userId].tsx`. Add the router. Add a constant to extract `userId` from the `router.query`. How do get this userId from the query? Because we created a file called `[userId].tsx` in step 1 and this special syntaxis in the naming allow us to. Add the fetching user part. Add conditional rendering to show the loader while we're fetching the user.
+
+4. Now in the main return section, we need to 4 components: `<Header/>`, `<UserHero/>`, `<UserBio/>` and `<Postfeed/>`. Of these 4, we already have only two created: Header and Postfeed. Import those 2.
+
+5. In the `components` folder, create a new folder called `users`. Inside this folder, create the missing 2 components `UserHero.tsx` and `UserBio.tsx`.
+
+6. Create an interface for our `UserHero.tsx`. And fill it in.
+
+7. Now write / style `UserBio.tsx`. For this we will install another package:
+
+```sh
+npm install date-fns
+```
+
+8. Import `format` from our package. Keep editing adding functions and styling the return.
+
+### Create our user profile page & enable editing of the image & adding coverage of the image & changing your name.
+
 ### Fill `Who to follow` component
