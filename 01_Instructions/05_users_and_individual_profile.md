@@ -18,6 +18,10 @@
 
 ### Create Avatar
 
-1. Go to `components` folder and create a new file called `Avatar.tsx`.
+1. Go to `components` folder and create a new file called `Avatar.tsx`. Create the basic structure, add an interface, pass the props, style the return. Work on the main body of the function.
+
+2. To add the `<Avatar>` component to our UI and actually see what we're editing. Go to `FollowBar.tsx` file in `components/layout` folder. Import the `useUsers` (plural) hook. Create a conditional rendering: if users is empty, then return NULL-nothing. Otherwise, return the right colum that contains the followers. Then import our Avatar on top of the file, and pass it on the return section with a property of userId. Style the return.
+
+3. Style `Avatar.tsx`. Add the function to redirect when clicked on it. Inside `public` folder, create a new folder called `images`. Add the PNG image placeholder for image in the `public/images/` folder.
 
 ### Fill `Who to follow` component
