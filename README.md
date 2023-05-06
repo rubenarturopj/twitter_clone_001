@@ -70,6 +70,15 @@ Data and Time manipulation (front and back)
 10. [Notifications](https://github.com/rubenarturopj/twitter_clone_001/blob/main/01_Instructions/10_notifications.md)
 11. [Vercel Deployment](https://github.com/rubenarturopj/twitter_clone_001/blob/main/01_Instructions/11_vercel_deployment.md)
 
+### BUGS FIXES
+
+You may encounter some bugs during the EDIT/FOLLOW functionality, throwing "Not Signed In" error. This happens because Next and NextAuth have been updated to a newer version. But there is a simple fix to this problem:
+
+1. Your `[...nextauth].ts` file should export `authOptions` separately (change the function declaration and the export at the bottom).
+2. Your `serverAuth.ts` file should use `getServerSession(req, res, authOptions)` instead of `getSession({req})`. (Deal with the imports as well)
+3. Modify `serverAuth(req)` to `serverAuth(req, res)` everytwhere in your code.
+4. Logout, shutdown the app, login again, everything should work.
+
 ### Cloning the repository
 
 ```shell

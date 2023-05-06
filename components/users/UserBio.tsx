@@ -29,11 +29,7 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
         <div className="border-b-[1px] border-neutral-800 pb-4">
             <div className="flex justify-end p-2">
                 {currentUser?.id === userId ? (
-                    <Button
-                        secondary
-                        label="Edit"
-                        onClick={() => editModal.onOpen}
-                    />
+                    <Button secondary label="Edit" onClick={editModal.onOpen} />
                 ) : (
                     <Button
                         onClick={() => {}}
@@ -55,10 +51,7 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
                     </p>
                 </div>
                 <div className="flex flex-col mt-4">
-                    <p className="text-white">
-                        {/* {fetchedUser?.bio} */}
-                        Biography
-                    </p>
+                    <p className="text-white">{fetchedUser?.bio}</p>
                     <div
                         className="
                             flex 
