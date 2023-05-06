@@ -153,13 +153,3 @@ npm install react-hot-toast
 2. We are going to check if the router is protected. For that we're going to use our currentUser. So, import "useCurrentUser" from the hook we created. Then add a costant in the main function. THe we're going to do some changes to the "handleClick" so it all works.
 
 3. Go to `Sidebar.tsx` and add the `auth` property to `notifications` and `Profile` in the `items` array. THen we need to pass that in the return section: add `auth={item.auth}` to the `<SidebarItem>` component.
-
-:::::::::::::::::::::::::::::::::::::::::
-
-Me quedé en el minuto: 1 h 18 min 10 s
-
-:::::::::::::::::::::::::::::::::::::::::
-
-### Write our modals
-
-### Connect Authentication with our app
