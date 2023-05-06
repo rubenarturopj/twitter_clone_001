@@ -16,13 +16,15 @@
 
 -   We are creating the different routers here
 
-### Create Avatar
+### Create Avatar & the right panel for "Who to follow"
 
 1. Go to `components` folder and create a new file called `Avatar.tsx`. Create the basic structure, add an interface, pass the props, style the return. Work on the main body of the function.
 
-2. To add the `<Avatar>` component to our UI and actually see what we're editing. Go to `FollowBar.tsx` file in `components/layout` folder. Import the `useUsers` (plural) hook. Create a conditional rendering: if users is empty, then return NULL-nothing. Otherwise, return the right colum that contains the followers. Then import our Avatar on top of the file, and pass it on the return section with a property of userId. Style the return.
+2. To add the `<Avatar>` component to our UI and actually see what we're editing.
 
-3. Style `Avatar.tsx`. Add the function to redirect when clicked on it. Inside `public` folder, create a new folder called `images`. Add the PNG image placeholder for image in the `public/images/` folder.
+3. Go to `FollowBar.tsx` file in `components/layout` folder. Import the `useUsers` (plural) hook. Create a conditional rendering: if users is empty, then return NULL-nothing. Otherwise, return the right colum that contains the followers. Then import our Avatar on top of the file, and pass it on the return section with a property of userId. Style the return.
+
+4. Style `Avatar.tsx`. Add the function to redirect when clicked on it. Inside `public` folder, create a new folder called `images`. Add the PNG image placeholder for image in the `public/images/` folder.
 
 ### Create user profile
 
@@ -52,6 +54,4 @@ npm install date-fns
 
 8. Import `format` from our package. Keep editing adding functions and styling the return.
 
-### Create our user profile page & enable editing of the image & adding coverage of the image & changing your name.
-
-### Fill `Who to follow` component
+-   You should end with a nice profile page
