@@ -19,6 +19,7 @@ Frontend
 -   SWR (stale-while-revalidate): a React Hooks library for data fetching.
 -   React Hot Toast: notifications (_npm install react-hot-toast_)
 -   React-spinners: visual loader animations (_npm install react-spinners_)
+-   React-dropzone: enable drag and drop files (_npm install react-dropzone_)
 
 Backend: Server side and Routing
 

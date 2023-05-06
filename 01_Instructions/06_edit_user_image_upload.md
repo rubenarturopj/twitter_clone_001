@@ -20,10 +20,14 @@
 
 -   after placing the inputs, you should be able to change the bio in your profile page. If it throws error, then you need to do the bug fix explained on the main read me file.
 
-7. Create a new file called `ImageUpload.tsx` in `components` folder.
+7. Create a new file called `ImageUpload.tsx` in `components` folder. For this component we are going to need/use/implement a new package for Drag and dropping files (pictures)
 
-:::::::::::::::::::::::::::::::::::
+```sh
+npm install react-dropzone
+```
 
-me quedé en: 2 h - 38 min - 03 s
+8. Restart your application. Fill in the `ImageUpload.tsx` file and style the return.
 
-:::::::::::::::::::::::::::::::::::
+-   If you try to upload a profile picture and a cover picture, it all should work.
+
+-   NOTE: DONT USE FILES TOO BIG OR IT WONT WORK
