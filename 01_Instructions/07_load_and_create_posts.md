@@ -18,12 +18,25 @@
 
 -   At this point, if you try to make a tweet it should work. It should be stored succesfully in the database.
 
-## Make our own tweets visible in our profile page
+## Make our own tweets visible in our profile page. Create post feed.
 
-1. Me quedé en: 3 h : 07 min : 10 s
+1. In the folder `components` crate a new folder called `posts`. Inside create a new file called `PostFeed.tsx`. Give it the basic structure.
 
-### SOMEthing else that will be used later
+2. Go to `pages/index.tsx` and below the `<Form/>` component, add our recently created `<PostFeed/>` component.
 
-In the folder `components` crate a new folder called `posts`. Inside create a new file called `PostFeed.tsx`. Give it the basic structure.
+3. We are going to start writing the POstfeed component. But we'll need another component called `<PostItem>`. Create this .tsx file in the same folder as Postfeed. Create the functions to redirect to the user profile when clickng on the picture and also to go the tweet page. We are passing the data from the tweet through postfeed.tsx. We're also adding the comments and like icons and somwhat their functionalities.
 
-Go to `pages/index.tsx` and below the `<Form/>` component, add our recently created `<PostFeed/>` component
+### Display our tweets in our profile page
+
+1. Go to `pages/users/[userId].tsx` and in the return section add the `PostFeed` component and pass it he props of userId.
+
+## More users
+
+1. To test at more capacity the website. Log out and create more users and tweet.
+
+List
+rxxxx.axxxx@ ---> password1
+Lara Croft perrito@ ---> password2
+Leon S Kennedy churro@ ---> password3
+Hermione pozol@ ---> password4
+Cabeza Olmeca orejademico@ ---> password5
