@@ -2,9 +2,10 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 import useLoginModal from "@/hooks/useLoginModal";
 import { useRouter } from "next/router";
 import Avatar from "../Avatar";
-import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
 import { useCallback, useMemo } from "react";
 import { formatDistanceToNowStrict } from "date-fns";
+import useLike from "@/hooks/useLike";
 
 interface PostItemProps {
     data: Record<string, any>;
@@ -16,6 +17,7 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
     const loginModal = useLoginModal();
 
     const { data: currentUser } = useCurrentUser();
+    const { hasLiked, toggleLike } = useLike({ postId: data.id, userId });
 
     // to click on tweet and redirect to user profile
     const goToUser = useCallback(
@@ -33,24 +35,19 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
 
     // to like a tweet
     const onLike = useCallback(
-        (event: any) => {
+        async (event: any) => {
             event.stopPropagation();
 
-            loginModal.onOpen();
+            if (!currentUser) {
+                return loginModal.onOpen();
+            }
+
+            toggleLike();
         },
-        [loginModal]
+        [loginModal, currentUser, toggleLike]
     );
-    // const onLike = useCallback(async (ev: any) => {
-    //     ev.stopPropagation();
 
-    //     if (!currentUser) {
-    //       return loginModal.onOpen();
-    //     }
-
-    //     toggleLike();
-    //   }, [loginModal, currentUser, toggleLike]);
-
-    // const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
+    const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
 
     const createdAt = useMemo(() => {
         if (!data?.createdAt) {
@@ -134,8 +131,7 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
                                 hover:text-red-500
                             "
                         >
-                            <AiOutlineHeart size={20} />
-                            {/* <LikeIcon color={hasLiked ? 'red' : ''} size={20} />*/}
+                            <LikeIcon color={hasLiked ? "red" : ""} size={20} />
                             <p>{data.likedIds.length}</p>
                         </div>
                     </div>

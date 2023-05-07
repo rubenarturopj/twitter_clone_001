@@ -56,3 +56,4 @@ const useLike = ({ postId, userId }: { postId: string; userId?: string }) => {
         toggleLike,
     };
 };
+export default useLike;

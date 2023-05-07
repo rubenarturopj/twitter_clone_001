@@ -21,3 +21,5 @@
 2. Let's create now the hook for the file we created before. Go to `hooks` folder and create a file called `useLike.ts`. Write this file.
 
 -   Side note: the hooks describe what we will do for the frontend, communicating maybe through axios sending stuff to the back end. The other files on PAGES/API with the extension of .ts, are the backend actions. MOre or less.
+
+3. Go to `components/posts/PostItem.tsx` and add the `LIKE` hook we created.
