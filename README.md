@@ -71,7 +71,7 @@ Data and Time manipulation (front and back)
 10. [Notifications](https://github.com/rubenarturopj/twitter_clone_001/blob/main/01_Instructions/10_notifications.md)
 11. [Vercel Deployment](https://github.com/rubenarturopj/twitter_clone_001/blob/main/01_Instructions/11_vercel_deployment.md)
 
-### BUGS FIXES
+### BUGS FIXES part 1
 
 You may encounter some bugs during the EDIT/FOLLOW functionality, throwing "Not Signed In" error. This happens because Next and NextAuth have been updated to a newer version. But there is a simple fix to this problem:
 
@@ -79,6 +79,34 @@ You may encounter some bugs during the EDIT/FOLLOW functionality, throwing "Not 
 2. Your `serverAuth.ts` file should use `getServerSession(req, res, authOptions)` instead of `getSession({req})`. (Deal with the imports as well)
 3. Modify `serverAuth(req)` to `serverAuth(req, res)` everytwhere in your code.
 4. Logout, shutdown the app, login again, everything should work.
+
+### More BUGS FIXES part 2
+
+You may find errors in unfollowing / unliking a tweet functionalities. This is happening wherever the DELETE method is called, the reason has something to do with how axios treats the requests. These are the lines of code to re-write:
+
+-   in like.ts
+
+```sh
+const postId = req.method === "POST" ? req.body.postId : req.query.postId;
+```
+
+-   in useLike.ts
+
+```sh
+request = () => axios.delete("/api/like", { params: { postId } });
+```
+
+-   in follow.ts
+
+```sh
+const userId = req.method === "POST" ? req.body.userId : req.query.userId;
+```
+
+-   in useFollow.ts
+
+```sh
+axios.delete("/api/follow", { params: { userId } });
+```
 
 ### Cloning the repository
 

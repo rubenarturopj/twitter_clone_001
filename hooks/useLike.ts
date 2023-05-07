@@ -29,7 +29,8 @@ const useLike = ({ postId, userId }: { postId: string; userId?: string }) => {
             let request;
             // if we had liked this post, then we want to unlike it. And viceversa as well
             if (hasLiked) {
-                request = () => axios.delete("/api/like", { data: { postId } });
+                request = () =>
+                    axios.delete("/api/like", { params: { postId } });
             } else {
                 request = () => axios.post("/api/like", { postId });
             }
