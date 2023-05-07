@@ -1,7 +1,3 @@
-## Under construction
-
-## 👷‍♂️🏗️🚧⚠️
-
 ## Edit user, Image upload
 
 ### "Edit" Modal and Button

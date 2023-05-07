@@ -11,7 +11,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             // className="
             //     h-screen
             //     bg-black
-            //     bg-neutral-900
             // "
             className="
             h-screen 
