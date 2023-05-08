@@ -7,10 +7,13 @@ import Header from "@/components/Header";
 import Form from "@/components/Form";
 import PostItem from "@/components/posts/PostItem";
 import CommentedFeed from "@/components/posts/CommentedFeed";
+import { stringify } from "querystring";
 
 const PostView = () => {
     const router = useRouter();
     const { postId } = router.query;
+    console.log("----> this is my post id in pages/posts/[postId].tsx");
+    console.log(postId);
 
     const { data: fetchedPost, isLoading } = usePost(postId as string);
 
@@ -32,6 +35,7 @@ const PostView = () => {
                 placeholder="Tweet your reply"
             />
             <CommentedFeed comments={fetchedPost?.comments} />
+            {/* <p>{stringify(fetchedPost)}</p> */}
         </>
     );
 };
