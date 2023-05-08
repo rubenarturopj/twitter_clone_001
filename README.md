@@ -1,7 +1,3 @@
-## Under construction
-
-## 👷‍♂️🏗️🚧⚠️
-
 # Build your own Twitter clone
 
 ### Technologies used
