@@ -14,9 +14,10 @@ export default async function handler(
     }
 
     try {
+        // the user i want to follow
         const userId =
             req.method === "POST" ? req.body.userId : req.query.userId;
-
+        //our session / user
         const { currentUser } = await serverAuth(req, res);
 
         if (!userId || typeof userId !== "string") {
@@ -35,7 +36,7 @@ export default async function handler(
 
         let updatedFollowingIds = [...(user.followingIds || [])];
 
-        // we are following someone
+        // we start following someone
         if (req.method === "POST") {
             updatedFollowingIds.push(userId);
 

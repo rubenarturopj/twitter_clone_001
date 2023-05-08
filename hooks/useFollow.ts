@@ -16,7 +16,7 @@ const useFollow = (userId: string) => {
         const list = currentUser?.followingIds || [];
 
         return list.includes(userId);
-    }, [userId, currentUser]);
+    }, [userId, currentUser?.followingIds]);
 
     // to follow
     const toggleFollow = useCallback(async () => {
