@@ -1,7 +1,3 @@
-## Under construction
-
-## 👷‍♂️🏗️🚧⚠️
-
 ## Notifications
 
 ### Setting up the visual icon for notifications

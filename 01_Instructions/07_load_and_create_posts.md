@@ -1,7 +1,3 @@
-## Under construction
-
-## 👷‍♂️🏗️🚧⚠️
-
 ### Fix the PROFILE button on the left sidebar so it redirects to our profile page.
 
 1. Go to `components/layout/Sidebar.tsx`, find the Profile button in the array with the buttons and edit the `href`. ---> `href: "/users/${currentUser?.id}"`.
