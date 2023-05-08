@@ -28,6 +28,37 @@ export default async function handler(
             },
         });
 
+        // start of notifications ***************
+        try {
+            const post = await prisma.post.findUnique({
+                where: {
+                    id: postId,
+                },
+            });
+
+            if (post?.userId) {
+                await prisma.notification.create({
+                    data: {
+                        body: "Someone replied to your tweet!",
+                        userId: post.userId,
+                    },
+                });
+
+                await prisma.user.update({
+                    where: {
+                        id: post.userId,
+                    },
+                    data: {
+                        hasNotification: true,
+                    },
+                });
+            }
+        } catch (error) {
+            console.log("error at notifications in /pages/api/comment.ts");
+            console.log(error);
+        }
+        // end of notificaions *******************
+
         return res.status(200).json(comment);
     } catch (error) {
         console.log("Error in pages/api/comments.ts");

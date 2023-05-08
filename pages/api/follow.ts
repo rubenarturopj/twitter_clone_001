@@ -38,6 +38,28 @@ export default async function handler(
         // we are following someone
         if (req.method === "POST") {
             updatedFollowingIds.push(userId);
+
+            // Start of   NOTIFICACIONS ****************
+            try {
+                await prisma.notification.create({
+                    data: {
+                        body: "Someone followed you!",
+                        userId,
+                    },
+                });
+
+                await prisma.user.update({
+                    where: {
+                        id: userId,
+                    },
+                    data: {
+                        hasNotification: true,
+                    },
+                });
+            } catch (error) {
+                console.log(error);
+            }
+            // end of   NOTIFICATIONS *************
         }
 
         // if we want to stop following someone
