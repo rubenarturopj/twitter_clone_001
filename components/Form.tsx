@@ -7,6 +7,7 @@ import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import Avatar from "./Avatar";
 import Button from "./Button";
+import usePost from "@/hooks/usePost";
 
 interface FormProps {
     placeholder: string;
@@ -21,6 +22,8 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
     const { data: currentUser } = useCurrentUser();
     // call usePosts  hook, but only extract mutate
     const { mutate: mutatePosts } = usePosts();
+    // for the comments, to see them in real time
+    const { mutate: mutatePost } = usePost(postId as string);
 
     const [body, setBody] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -29,17 +32,24 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
         try {
             setIsLoading(true);
 
-            await axios.post("/api/posts", { body });
+            // URL changes depending we are replying/commenting a tweet
+            // or Tweeting/ creating a brand new tweet.
+            const url = isComment
+                ? `/api/comments?postId=${postId}`
+                : "/api/posts";
+
+            await axios.post(url, { body });
 
             toast.success("Tweet created");
             setBody("");
             mutatePosts();
+            mutatePost();
         } catch (error) {
             toast.error("Something went wrong");
         } finally {
             setIsLoading(false);
         }
-    }, [body, mutatePosts]);
+    }, [body, isComment, postId, mutatePosts, mutatePost]);
 
     return (
         <div className="border-b-[1px] border-neutral-800 px-5 py-2">
