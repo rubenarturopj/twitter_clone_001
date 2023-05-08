@@ -30,6 +30,7 @@ export default async function handler(
 
         return res.status(200).json(comment);
     } catch (error) {
+        console.log("Error in pages/api/comments.ts");
         console.log(error);
         return res.status(400).end();
     }

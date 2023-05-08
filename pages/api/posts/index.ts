@@ -31,6 +31,9 @@ export default async function handler(
         if (req.method === "GET") {
             const { userId } = req.query;
 
+            console.log(
+                "-----> making sure we're passing a userId in pages/api/posts/index.ts"
+            );
             console.log({ userId });
 
             let posts;
@@ -65,6 +68,7 @@ export default async function handler(
         }
     } catch (error) {
         console.log(error);
+        console.log("Error in pages/api/posts/index.ts");
         return res.status(400).end();
     }
 }

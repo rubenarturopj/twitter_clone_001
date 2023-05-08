@@ -37,6 +37,7 @@ export default async function handler(
 
         return res.status(200).json({ ...existingUser, followersCount });
     } catch (error) {
+        console.log("Error in pages/api/users/[userId]");
         console.log(error);
         return res.status(400).end();
     }

@@ -31,6 +31,7 @@ const LoginModal = () => {
             // close the modal
             loginModal.onClose();
         } catch (error) {
+            console.log("error on components/modals/LoginModal.tsx");
             console.log(error);
         } finally {
             setIsLoading(false);
