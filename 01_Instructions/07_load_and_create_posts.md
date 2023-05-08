@@ -35,7 +35,7 @@
 1. To test at more capacity the website. Log out and create more users and tweet.
 
 List
-rxxxx.axxxx@ ---> password1
+rxxxxxxx.axxxxxxx@ ---> password1
 Lara Croft perrito@ ---> password2
 Leon S Kennedy churro@ ---> password3
 Hermione pozol@ ---> password4

@@ -34,7 +34,7 @@ export default async function handler(
             throw new Error("Invalid ID");
         }
 
-        let updatedFollowingIds = [...(user.followingIds || [])];
+        let updatedFollowingIds = [...(currentUser.followingIds || [])];
 
         // we start following someone
         if (req.method === "POST") {

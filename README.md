@@ -108,6 +108,26 @@ const userId = req.method === "POST" ? req.body.userId : req.query.userId;
 axios.delete("/api/follow", { params: { userId } });
 ```
 
+### BUG FIX 3
+
+Bug FIX 3
+
+Users can follow only one other user. If they try to follow another person, they lose the one they had before.
+
+Antonio's file "Follow.ts"
+Line 30
+
+```sh
+let updatedFollowingIds = [...(user.followingIds || [])];
+```
+
+CoderAtH0me's file "Follow.ts"
+Line 33
+
+```sh
+let updatedFollowingIds = [...(currentUser.followingIds || [])];
+```
+
 ### Cloning the repository
 
 ```shell
