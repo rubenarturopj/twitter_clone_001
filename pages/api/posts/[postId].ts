@@ -42,6 +42,7 @@ export default async function handler(
     }
 }
 
+// experiment to avoid problems with vercel and API Response size limit of 4MB
 export const config = {
     api: {
         responseLimit: false,
