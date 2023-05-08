@@ -1,5 +1,9 @@
 # Build your own Twitter clone
 
+## DEMO
+
+(This is a live demo)[https://fullstack-learning-project-social-media-twit.vercel.app/]
+
 ### Technologies used
 
 Language
@@ -122,6 +126,14 @@ Line 33
 
 ```sh
 let updatedFollowingIds = [...(currentUser.followingIds || [])];
+```
+
+### Deployment BUG: Vercel and Prisma issue
+
+In your `package.json` add the following line in the `scripts`:
+
+```sh
+"postinstall": "prisma generate",
 ```
 
 ### Cloning the repository
